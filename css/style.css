@@ -116,7 +116,7 @@ div {
   overflow: hidden;
 }
 #header .site-name #logo {
-  font: bold 38px/1.12 "Times New Roman", Georgia, Times, sans-serif;
+  font: bold 38px/1.12 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #555;
 }
 #header .site-name #logo span, #header .site-name #logo:hover {
@@ -271,7 +271,7 @@ div {
   margin: 0;
   color: #555;
   text-align: left;
-  font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+  font: bold 25px/1.1 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .post .post-title a {
   color: #555;
@@ -295,12 +295,7 @@ div {
   color: #6E7173;
   float: left;
   display: inline;
-  text-indent: 0.15em;
-}
-.post .post-meta:before {
-  font-family: "FontAwesome";
-  content: "\f073";
-  padding-right: 0.3em;
+  text-indent: 0em;
 }
 .post .post-meta .category:before {
   font-family: "FontAwesome";
@@ -544,7 +539,7 @@ div {
 }
 .post-archive h2 {
   margin: 0;
-  font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+  font: bold 25px/1.1 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 .post-archive .date {
   padding-right: 0.7em;
@@ -2088,7 +2083,7 @@ html[data-dark=true] img {
   /* flex: 1; removed because parent is now flex container */
   font-size: 15px;
   line-height: 1.77;
-  color: #444;
+  color: #666;
   text-align: justify;
   text-justify: distribute;
   word-break: break-word;
