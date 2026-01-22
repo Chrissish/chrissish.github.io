@@ -40,14 +40,36 @@ body {
   box-sizing: border-box; /* 防止 padding 撑大页面 */
 }
 
+/* Body container styles */
 .body_container {
-  padding: 0 60px;
+  padding: 0 20px;
   max-width: 1150px;
   margin: 0 auto;
 }
 
+/* Post Content Wrapper to handle TOC positioning */
+.post-content-wrapper {
+  position: relative;
+}
+
+/* TOC Sidebar - Absolute positioned relative to content wrapper */
+#toc-sidebar {
+  position: absolute;
+  top: 47px;
+  left: -280px; /* Adjust based on sidebar width + gap */
+  width: 240px;
+  height: 100%; /* Must match wrapper height to allow sticky inside */
+}
+
+/* The actual sticky element */
+.sticky-toc {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 20px; /* Distance from viewport top when stuck */
+}
+
 .content_container {
-  padding-right: 50px;
+  padding-right: 40px;
   padding-top: 20px;
 }
 
@@ -101,7 +123,7 @@ div {
   color: #777;
 }
 #header .site-name .description {
-  margin: 0.2em 0 0;
+  margin: 1em 0 0;
   color: #999;
 }
 #header #nav-menu {
@@ -133,6 +155,9 @@ div {
   margin-top: 40px;
   padding-bottom: 20px;
   word-wrap: break-word;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 #sidebar .widget {
   margin-bottom: 30px;
@@ -202,11 +227,11 @@ div {
   overflow: hidden;
 }
 #sidebar .widget .search-form input {
-  background: #fff 8px 8px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6%2BR8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG11AABzoAAA%2FN0AAINkAABw6AAA7GgAADA%2BAAAQkOTsmeoAAAESSURBVHjajNCxS9VRGMbxz71E4OwgoXPQxVEpXCI47%2BZqGP0LCoJO7UVD3QZzb3SwcHB7F3Uw3Zpd%2FAPCcJKG7Dj4u%2FK7Pwp94HDg5Xyf5z1Pr9YKImKANTzFXxzjU2ae6qhXaxURr%2FAFl9hHDy%2FwEK8z89sYVEp5gh84wMvMvGiSJ%2FEV85jNzLMR1McqfmN5BEBmnmMJFSvtpH7jdJiZv7q7Z%2BZPfMdcF6rN%2FT%2F1m2LGBkd4HhFT3dcRMY2FpskxaLNpayciHrWAGeziD7b%2BVfkithuTk8bkGa4wgWFmbrSTZOYeBvjc%2BucQj%2FEe6xHx4Taq1nrnKaW8K6XUUsrHWuvNevdRRLzFGwzvDbXAB9cDAHvhedDruuxSAAAAAElFTkSuQmCC);
+  background: #f8fafc 8px 8px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6%2BR8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG11AABzoAAA%2FN0AAINkAABw6AAA7GgAADA%2BAAAQkOTsmeoAAAESSURBVHjajNCxS9VRGMbxz71E4OwgoXPQxVEpXCI47%2BZqGP0LCoJO7UVD3QZzb3SwcHB7F3Uw3Zpd%2FAPCcJKG7Dj4u%2FK7Pwp94HDg5Xyf5z1Pr9YKImKANTzFXxzjU2ae6qhXaxURr%2FAFl9hHDy%2FwEK8z89sYVEp5gh84wMvMvGiSJ%2FEV85jNzLMR1McqfmN5BEBmnmMJFSvtpH7jdJiZv7q7Z%2BZPfMdcF6rN%2FT%2F1m2LGBkd4HhFT3dcRMY2FpskxaLNpayciHrWAGeziD7b%2BVfkithuTk8bkGa4wgWFmbrSTZOYeBvjc%2BucQj%2FEe6xHx4Taq1nrnKaW8K6XUUsrHWuvNevdRRLzFGwzvDbXAB9cDAHvhedDruuxSAAAAAElFTkSuQmCC);
   padding: 7px 11px 7px 28px;
   line-height: 16px;
   border: 1px solid #bbb;
-  width: 65%;
+  width: 80%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -529,7 +554,7 @@ div {
 /* middle*/
 @media print, screen and (max-width: 48em) {
   .body_container {
-    padding: 0 30px;
+    padding: 0 20px;
   }
   .content_container {
     padding-right: 15px;
@@ -1566,24 +1591,25 @@ figure.highlight .line,
 
 /* toc*/
 .toc-article {
-  border: 1px solid #bbb;
-  border-radius: 7px;
-  margin: 1.1em 0 0 2em;
+  margin: 1.1em 0 0 0;
   padding: 0.7em 0.7em 0 0.7em;
-  max-width: 40%;
+  width: 100%;
 }
 
 .toc-title {
+  color: #6E7173;
+  line-height: 2.7;
+  border-bottom: 1px solid #bbb;
   font-size: 120%;
 }
 
 #toc {
   line-height: 1em;
-  float: right;
+  float: none;
 }
 #toc .toc {
   padding: 0;
-  margin: 0.5em;
+  margin: 0.5em 0 0 0;
   line-height: 1.8em;
 }
 #toc .toc li {
@@ -1592,6 +1618,12 @@ figure.highlight .line,
 #toc .toc-child {
   margin-left: 1em;
   padding-left: 0;
+}
+
+.sticky-toc {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 20px;
 }
 
 @media print, screen and (max-width: 48em) {
@@ -1604,6 +1636,9 @@ figure.highlight .line,
   }
   #toc {
     float: none;
+  }
+  .sticky-toc {
+    position: static;
   }
 }
 /* table*/
@@ -2027,26 +2062,33 @@ html[data-dark=true] img {
   padding-left: 0rem;
 }
 
-/* Post Summary Layout (Left Text, Right Image) */
-.post-summary-wrapper {
+/* Post Item Wrapper - Flex container for content and image */
+.post-item-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* 改为 flex-start，避免强制拉伸高度 */
+  align-items: flex-start;
   padding-top: 15px;
   margin-bottom: 10px;
-  clear: both; /* 确保在 float 元素下方 */
+  clear: both;
+}
+
+/* Wrapper for Title, Meta, and Summary */
+.post-info-wrapper {
+  flex: 1;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-summary-content {
-  flex: 1;
-  padding-right: 20px;
+  /* flex: 1; removed because parent is now flex container */
   font-size: 15px;
   line-height: 1.77;
   color: #444;
   text-align: justify;
   text-justify: distribute;
   word-break: break-word;
-  /* 确保没有 padding-left 影响对齐，通常继承是 0，这里显式声明一下也没问题，但通常没必要 */
+  margin-top: 10px;
 }
 .post-summary-content p {
   margin: 0 0 1.234em;
@@ -2054,40 +2096,38 @@ html[data-dark=true] img {
 
 .post-summary-image {
   width: 30%;
-  flex-shrink: 0; /* 防止被压缩 */
+  flex-shrink: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align image to top */
   justify-content: center;
+  padding-top: 0px; /* Slight offset to align with title visually if needed */
 }
 .post-summary-image img {
   width: 100%;
-  height: auto; /* 高度自适应 */
-  aspect-ratio: 3/2;
+  height: auto;
+  aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow */
   cursor: default !important;
-  /* 去掉 hover 效果 */
 }
 
 .post-seperator {
   border-top: 1px solid #ddd;
   list-style: none;
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 14px;
   text-align: center;
 }
 
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
-  .post-summary-wrapper {
-    flex-direction: column-reverse; /* Text bottom, Image top? Or standard column? */
-    /* User didn't specify, but usually image top is better on mobile. */
-    /* But if I use column-reverse, image (2nd child) goes to top? No, column-reverse puts last item first? */
-    /* Flex items: 1. content, 2. image. */
-    /* column-reverse -> Image top, Content bottom. */
+  .post-item-wrapper {
+    flex-direction: column-reverse; /* Image top (if we swap order) or Image bottom? */
+    /* If HTML is: info-wrapper (title/meta/content), then image */
+    /* column-reverse -> Image top, Info bottom */
   }
-  .post-summary-content {
+  .post-info-wrapper {
     padding-right: 0;
     padding-top: 15px;
   }
@@ -2098,6 +2138,6 @@ html[data-dark=true] img {
   .post-summary-image img {
     width: 100%;
     height: auto;
-    aspect-ratio: 16/9 !important; /* Force override desktop 4:3 */
+    aspect-ratio: 16/9 !important; /* Force wider aspect ratio on mobile */
   }
 }
