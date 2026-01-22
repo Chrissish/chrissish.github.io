@@ -152,7 +152,7 @@ div {
 #sidebar {
   border-left: 1px solid #ddd;
   padding-left: 35px;
-  margin-top: 40px;
+  margin-top: 30px;
   padding-bottom: 20px;
   word-wrap: break-word;
   position: sticky;
@@ -265,7 +265,7 @@ div {
 }
 
 .post {
-  padding: 25px 0 15px;
+  padding: 15px 0 15px;
 }
 .post .post-title {
   margin: 0;
@@ -2066,7 +2066,7 @@ html[data-dark=true] img {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 15px;
+  padding-top: 0px;
   margin-bottom: 10px;
   clear: both;
 }
